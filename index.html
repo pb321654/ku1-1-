@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />    
+    <link href="css/styles.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body background="90.jpg">
+
+	<b>   <h1 style="color:blue">实用工具园</h1> </b>
+	<a  href="https://pb321654.github.io/ku1/">
+		
+	 <button type="button" style=" width:100px; height:40px; border-radius: 20px; border-color:black; background-color:orange;">返回主页</button>
+	  
+	 </a>
+    <b>   <p  style="color: red">欢迎进入工具园<br>本分页为工具资源下载站<br>干货满满，值得一览<br>神马？没有你想要的app？<br>请敬请期待（doge）</p> </b>
+	  
+	<ul>
+	 
+	    <li><a href="aideweb.apk">
+			<button type="button" style="width:100px;height:40px;background-color:green;border-radius:15px;border-color:black;">web学习器</button>
+		    </a></li>
+	  <li>
+		<button  type="button"style="width:120px;height:40px;background-color:red;border-radius:15px;border-color:black;">工具2（不可用）</button>
+	  </li>
+	    <li>
+		  <button  type="button"style="width:120px;height:40px;background-color:red;border-radius:15px;border-color:black;">工具3（不可用）</button>
+		</li>
+	  <li><button  type="button"style="width:120px;height:40px;background-color:red;border-radius:15px;border-color:black;">工具4（不可用）</button></li>
+	  <li><button  type="button"style="width:120px;height:40px;background-color:red;border-radius:15px;border-color:black;">工具5（不可用）</button></li>
+	  <li><button  type="button"style="width:120px;height:40px;background-color:red;border-radius:15px;border-color:black;">工具6（不可用）</button></li>
+	</ul>
+	
+	<b>    <p style="color:pink">联系方式:<br>作者邮箱:pangbinniubi@163.com</p></b>
+	<b><p style=  "color:orange"id=1></p></b>
+    <script>
+	alert("欢迎进入PB的网站");
+	var  timeElement = 		
+document.getElementById("1");timeElement.innerHTML = new Date();
+	(function(window,document,undefined){
+			
+
+	var hearts = [];
+			
+
+	window.requestAnimationFrame = (function(){
+				
+
+	return window.requestAnimationFrame ||
+				
+	
+window.webkitRequestAnimationFrame ||
+				
+	
+window.mozRequestAnimationFrame ||
+				
+	
+window.oRequestAnimationFrame ||
+		
+	
+window.msRequestAnimationFrame ||
+				
+    
+function (callback){
+					
+	
+setTimeout(callback,1000/60);
+				
+	
+}
+			
+
+	})();
+			
+	
+init();
+			
+	
+function init(){
+				
+	
+css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+				
+	
+attachEvent();
+				
+
+	gameloop();
+			
+	
+}
+			
+	
+function gameloop(){
+				
+	
+for(var i=0;i<hearts.length;i++){
+					
+
+	if(hearts[i].alpha <=0){
+						
+	
+document.body.removeChild(hearts[i].el);
+						
+	
+hearts.splice(i,1);
+						
+
+	continue;
+					
+	
+}
+					
+	
+hearts[i].y--;
+					
+	
+hearts[i].scale += 0.004;
+					
+	
+hearts[i].alpha -= 0.013;
+					
+
+	hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+				
+	
+}
+				
+	
+requestAnimationFrame(gameloop);
+			
+	
+}
+			
+	
+function attachEvent(){
+				
+	
+var old = typeof window.onclick==="function" && window.onclick;
+				
+
+	window.onclick = function(event){
+					
+	
+old && old();
+					
+	
+createHeart(event);
+				
+
+	}
+			
+	
+}
+		
+	
+function createHeart(event){
+				
+	
+var d = document.createElement("div");
+				
+
+	d.className = "heart";
+				
+	
+hearts.push({
+					
+	
+el : d,
+					
+	
+x : event.clientX - 5,
+					
+	
+y : event.clientY - 5,
+					
+
+	scale : 1,
+					
+
+	alpha : 1,
+					
+	
+color : randomColor()
+				
+
+	});
+				
+	
+document.body.appendChild(d);
+			
+	
+}
+			
+
+	function css(css){
+				
+	
+var style = document.createElement("style");
+				
+	
+style.type="text/css";
+				
+	
+try{
+					
+	
+style.appendChild(document.createTextNode(css));
+				
+
+	}catch(ex){
+					
+	
+style.styleSheet.cssText = css;
+				
+
+	}
+				
+	
+document.getElementsByTagName('head')[0].appendChild(style);
+			
+
+	}
+			
+
+	function randomColor(){
+				
+	
+return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+			
+	
+}
+		
+
+	})(window,document);
+	  
+	  
+	  
+	  
+	   
+	</script>
+  </body>
+</html>		
